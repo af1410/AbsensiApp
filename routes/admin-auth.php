@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\Admin\AbsensiController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HRDController;
 use App\Http\Controllers\Admin\KaryawanController;
 
@@ -23,15 +25,20 @@ Route::middleware('guest:admin')->prefix('admin')->name('admin.')->group(functio
 
 Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function () {
 
-    Route::get('/dashboard', function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'], function () {
         return view('admin.dashboard');
-    })->middleware(['verified'])->name('dashboard');
+    })->middleware(['verified'])->name('dashboard');;
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     //Admin
+    Route::get('/dashboard', [
+        DashboardController::class,
+        'index'
+    ])->name('dashboard');
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
     Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store');
@@ -57,6 +64,9 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
     Route::put('/HRD/{id}/update', [HRDController::class, 'update'])->name('HRD.update');
     Route::delete('/HRD/{id}/delete', [HRDController::class, 'destroy'])->name('HRD.destroy');
     Route::get('/HRD/print', [HRDController::class, 'print'])->name('HRD.print');
+
+    //Absensi
+    Route::get('/absensi', [AbsensiController::class, 'index'])->name('absensi.index');
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');

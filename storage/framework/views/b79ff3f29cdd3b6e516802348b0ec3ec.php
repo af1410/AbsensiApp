@@ -25,7 +25,6 @@
                                     </a>
                                 </td>
                             </tr>
-
                         </table>
                         <?php if($message = session('success')): ?>
                         <div class="alert alert-success">

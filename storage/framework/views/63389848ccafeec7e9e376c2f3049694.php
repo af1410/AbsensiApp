@@ -49,7 +49,6 @@
                                 <?php $no = 1; ?>
                                 <?php $__currentLoopData = $HRDs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $HRD): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
-
                                     <th><?php echo e($no++); ?></th>
                                     <th><?php echo e($HRD->NIK); ?></th>
                                     <th><?php echo e($HRD->name); ?></th>

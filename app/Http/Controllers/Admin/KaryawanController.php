@@ -12,13 +12,36 @@ use Carbon\Carbon;
 
 class KaryawanController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::all();
-        $admins = Admin::all();
-        $HRDs = HRD::all();
-        return view('admin.karyawan.index', compact('users', 'admins', 'HRDs'));
+        $jabatan = $request->input('jabatan'); // Ambil filter jabatan, jika ada
+
+        // Ambil data dari tabel users, admins, dan HRDs
+        $usersQuery = User::query();
+        $adminsQuery = Admin::query();
+        $HRDsQuery = HRD::query();
+
+        if ($jabatan) {
+            // Jika ada filter jabatan, tambahkan kondisi
+            $usersQuery->where('jabatan', $jabatan);
+            $adminsQuery->where('jabatan', $jabatan);
+            $HRDsQuery->where('jabatan', $jabatan);
+        }
+
+        $users = $usersQuery->get();
+        $admins = $adminsQuery->get();
+        $HRDs = $HRDsQuery->get();
+
+        // Ambil daftar jabatan unik dari ketiga tabel
+        $jabatanList = User::pluck('jabatan')
+            ->merge(Admin::pluck('jabatan'))
+            ->merge(HRD::pluck('jabatan'))
+            ->unique()
+            ->sort();
+
+        return view('admin.karyawan.index', compact('users', 'admins', 'HRDs', 'jabatan', 'jabatanList'));
     }
+
 
     public function create()
     {

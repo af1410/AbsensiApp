@@ -4,19 +4,39 @@
 
 @section('content')
 <div class="content-wrapper ml-5 pr-5 pt-5" style="background-color: #989da1;">
-
-    <div class="container-fluid pt-2 mt-5">
+    <div class="container-fluid pt-2 mt-2">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <h2 class="text-center pt-4 mb-1 pb-4 text-light" style="background-color: #1e90ff;"><b>Data Karyawan</b></h2>
                     <div class="card-body">
-                        <table class="table table-borderless">
+                        <table class="table">
                             <tr>
-                                <td>
+                                <td class="col-md-2">
                                     <a href="{{ route('admin.karyawan.create') }}" class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Tambah</a>
                                 </td>
-                                <td class="text-right mr-2">
+                                <td class="col-md-8">
+                                    <form method="GET" action="{{ route('admin.karyawan.index') }}">
+                                        <div class="form-group row">
+                                            <label for="jabatan" class="col-form-label col-md-2">Filter Jabatan</label>
+                                            <div class="col-md-6">
+                                                <select name="jabatan" id="jabatan" class="form-control">
+                                                    <option value="">-- Semua Jabatan --</option>
+                                                    @foreach ($jabatanList as $jabatanOption)
+                                                    <option value="{{ $jabatanOption }}" {{ $jabatan == $jabatanOption ? 'selected' : '' }}>
+                                                        {{ $jabatanOption }}
+                                                    </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <button type="submit" class="btn btn-primary"><i class="fas fa-filter"></i> Filter</button>
+                                                <a href="{{ route('admin.karyawan.index') }}" class="btn btn-secondary"><i class="fas fa-sync-alt"></i> Reset</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </td>
+                                <td class="text-right col-md-2">
                                     <a href="{{ route('admin.karyawan.print') }}" class="btn btn-success mb-3 text-right">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer-fill" viewBox="0 0 16 16">
                                             <path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1" />
@@ -25,8 +45,8 @@
                                     </a>
                                 </td>
                             </tr>
-
                         </table>
+                        <!-- Tabel Data -->
                         @if ($message = session('success'))
                         <div class="alert alert-success">
                             <p>{{ $message }}</p>
@@ -36,7 +56,7 @@
                             <thead class="thead text-light" style="background-color: #1e90ff;">
                                 <tr>
                                     <th>No</th>
-                                    <th>Kode Admin</th>
+                                    <th>NIK</th>
                                     <th>Nama</th>
                                     <th>Jabatan</th>
                                     <th>Alamat</th>
@@ -49,7 +69,6 @@
                                 @php $no = 1; @endphp
                                 @foreach ($users as $user)
                                 <tr>
-
                                     <th>{{ $no++ }}</th>
                                     <th>{{ $user->NIK }}</th>
                                     <th>{{ $user->name }}</th>
@@ -59,11 +78,11 @@
                                     <th>{{ $user->email }}</th>
                                     <th>
                                         <div class="d-flex">
-                                            <a href="{{ route('admin.karyawan.edit', $user->id) }}" class=" btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
+                                            <a href="{{ route('admin.karyawan.edit', $user->id) }}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
                                             <form action="{{ route('admin.karyawan.destroy', $user->id) }}" method="post">
                                                 @method('delete')
                                                 @csrf
-                                                <button type="submit" class="btn btn-danger btn-sm ml-1" onclick="return confirm('Ingin Menhapus {{ $user->name }} ?')"><i class="fas fa-trash"></i></button>
+                                                <button type="submit" class="btn btn-danger btn-sm ml-1" onclick="return confirm('Ingin Menghapus {{ $user->name }} ?')"><i class="fas fa-trash"></i></button>
                                             </form>
                                         </div>
                                     </th>
@@ -80,11 +99,11 @@
                                     <th>{{ $HRD->email }}</th>
                                     <th>
                                         <div class="d-flex">
-                                            <a href="{{ route('admin.HRD.edit', $HRD->id) }}" class=" btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
+                                            <a href="{{ route('admin.HRD.edit', $HRD->id) }}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
                                             <form action="{{ route('admin.HRD.destroy', $HRD->id) }}" method="post">
                                                 @method('delete')
                                                 @csrf
-                                                <button type="submit" class="btn btn-danger btn-sm ml-1" onclick="return confirm('Ingin Menhapus {{ $HRD->name }} ?')"><i class="fas fa-trash"></i></button>
+                                                <button type="submit" class="btn btn-danger btn-sm ml-1" onclick="return confirm('Ingin Menghapus {{ $HRD->name }} ?')"><i class="fas fa-trash"></i></button>
                                             </form>
                                         </div>
                                     </th>
@@ -101,12 +120,11 @@
                                     <th>{{ $admin->email }}</th>
                                     <th>
                                         <div class="d-flex">
-                                            <a href="{{ route('admin.admin.edit', $admin->id) }}" class=" btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
-                                            <!-- <a href="/admin/admin/{{ $admin->id_admin }}/destroy" onclick="return confirm('Hapus Data Dengan Adminname : {{ $admin->adminname }} ? ');" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a> -->
+                                            <a href="{{ route('admin.admin.edit', $admin->id) }}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
                                             <form action="{{ route('admin.admin.destroy', $admin->id) }}" method="post">
                                                 @method('delete')
                                                 @csrf
-                                                <button type="submit" class="btn btn-danger btn-sm ml-1" onclick="return confirm('Ingin Menhapus {{ $admin->name }} ?')"><i class="fas fa-trash"></i></button>
+                                                <button type="submit" class="btn btn-danger btn-sm ml-1" onclick="return confirm('Ingin Menghapus {{ $admin->name }} ?')"><i class="fas fa-trash"></i></button>
                                             </form>
                                         </div>
                                     </th>
@@ -114,6 +132,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+
                     </div>
                 </div>
             </div>

@@ -21,8 +21,8 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item <?php if(request()->routeIs('.*')): ?> menu-open <?php endif; ?>">
-                    <a href="" class="nav-link <?php if(request()->routeIs('admin.barang.*')): ?> active <?php endif; ?>">
+                <li class="nav-item <?php if(request()->routeIs('admin.absensi*')): ?> menu-open <?php endif; ?>">
+                    <a href="<?php echo e(route('admin.absensi.index')); ?>" class="nav-link <?php if(request()->routeIs('admin.absensi.*')): ?> active <?php endif; ?>">
                         <i class="nav-icon fa fa-cube"></i>
                         <p>
                             Absensi

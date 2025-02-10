@@ -21,8 +21,8 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item @if(request()->routeIs('.*')) menu-open @endif">
-                    <a href="" class="nav-link @if(request()->routeIs('admin.barang.*')) active @endif">
+                <li class="nav-item @if(request()->routeIs('admin.absensi*')) menu-open @endif">
+                    <a href="{{ route('admin.absensi.index') }}" class="nav-link @if(request()->routeIs('admin.absensi.*')) active @endif">
                         <i class="nav-icon fa fa-cube"></i>
                         <p>
                             Absensi
