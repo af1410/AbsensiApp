@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ config('app.name', 'Berkah Ibu') }} | @yield('title')</title>
+    <title>@yield('title') | {{ config('app.name') }} </title>
     <link rel="icon" href="{{ asset('img/favicon.png') }}" type="image/png">
 
     <!-- Google Font: Source Sans Pro -->
@@ -29,8 +29,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">
+<body class="hold-transition sidebar-mini layout-fixed" style="background-color: #989da1;">
+    <div class=" wrapper">
 
 
         <!-- Main Header -->
@@ -40,7 +40,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         @include('admin.layouts.sidebar') <!-- Sesuaikan dengan lokasi sidebar Anda -->
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper" style="background-color: #989da1;">
             <!-- Main content -->
             <section class="content">
                 @yield('content')

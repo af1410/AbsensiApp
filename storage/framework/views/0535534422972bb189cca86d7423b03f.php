@@ -3,7 +3,7 @@
 <?php $__env->startSection('title', 'Tambah Admin'); ?>
 
 <?php $__env->startSection('content'); ?>
-<div class="content-wrapper ml-5 pr-5 pt-5">
+<div class="content-wrapper ml-5 pr-5 pt-5" style="background-color: #989da1;">
     <div class="container-fluid pt-2 mt-5">
         <div class="row">
             <div class="col-md-3">
@@ -51,20 +51,20 @@
                             <div class="mb-3 row">
                                 <label for="inputPassword" class="col-sm-2 col-form-label">Alamat</label>
                                 <div class="col-sm-10">
-                                    <input type="text-area" class="form-control" id="alamat" name="alamat">
+                                    <input type="text-area" class="form-control" id="alamat" name="alamat" placeholder="Masukan Alamat" required>
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="inputPassword" class="col-sm-2 col-form-label">Nomor HP</label>
                                 <div class="col-sm-10">
-                                    <input type="telephone" class="form-control" id="no_hp" name="no_hp" required>
+                                    <input type="telephone" class="form-control" id="no_hp" name="no_hp" placeholder="Masukan Nomor Hp" required>
                                 </div>
                             </div>
 
                             <div class="mb-3 row">
                                 <label for="inputPassword" class="col-sm-2 col-form-label">Email</label>
                                 <div class="col-sm-10">
-                                    <input type="email" class="form-control" id="email" name="email" required>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Masukan Email" required>
                                 </div>
                             </div>
                             <div class="mb-3 row">

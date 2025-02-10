@@ -11,7 +11,6 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    protected $guard = 'web';
 
     /**
      * The attributes that are mass assignable.
@@ -22,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'jabatan',
+        'alamat',
+        'no_hp',
     ];
 
     /**
@@ -45,5 +47,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function absensi()
+    {
+        return $this->hasMany(Absensi::class, 'NIK', 'NIK');
     }
 }

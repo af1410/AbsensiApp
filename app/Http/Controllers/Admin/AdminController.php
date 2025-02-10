@@ -67,20 +67,6 @@ class AdminController extends Controller
         return redirect()->route('admin.admin.index')->with('success', 'Admin berhasil ditambahkan.');
     }
 
-    public function str(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:admins',
-            'password' => 'required',
-            'role' => 'required'
-        ]);
-
-        Admin::create($request->all());
-
-        return redirect()->route('admin.admin.index')->with('success', 'Admin berhasil ditambahkan.');
-    }
-
     public function edit($id)
     {
         $admin = Admin::findOrFail($id);

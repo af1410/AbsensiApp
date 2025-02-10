@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content')
-<div class="content-wrapper ml-5 pr-5 pt-5">
+<div class="content-wrapper ml-5 pt-5" style="background-color: #989da1;">
     <div class="container-fluid pt-2">
         <h1 class="text-center">Dashboard</h1>
         <div class="row">

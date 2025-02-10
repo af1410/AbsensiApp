@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary " style="background-color: #1e90ff; width: 250px; transition: width 0.3s ease;">
     <!-- Brand Logo -->
     <a href=" /" class="brand-link">
-        <img src="<?php echo e(asset('img/favicon.png')); ?>" alt="BerkahIbu" class="brand-image " style=" width: 60px; height: 80px;">
+        <img src="<?php echo e(asset('img/favicon.png')); ?>" alt="AbsensiApp" class="brand-image " style=" width: 60px; height: 80px;">
         <span class="brand-text font-light"><b>Absensi Karyawan</b></span>
     </a>
 
@@ -29,16 +29,16 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item <?php if(request()->routeIs('.*')): ?> menu-open <?php endif; ?>">
-                    <a href="" class="nav-link <?php if(request()->routeIs('admin.barang.*')): ?> active <?php endif; ?>">
+                <li class="nav-item <?php if(request()->routeIs('admin.karyawan.*')): ?> menu-open <?php endif; ?>">
+                    <a href="<?php echo e(route('admin.karyawan.index')); ?>" class="nav-link <?php if(request()->routeIs('admin.karyawan.*')): ?> active <?php endif; ?>">
                         <i class="nav-icon fa fa-cube"></i>
                         <p>
                             Karyawan
                         </p>
                     </a>
                 </li>
-                <li class="nav-item <?php if(request()->routeIs('.*')): ?> menu-open <?php endif; ?>">
-                    <a href="" class="nav-link <?php if(request()->routeIs('admin.barang.*')): ?> active <?php endif; ?>">
+                <li class="nav-item <?php if(request()->routeIs('admin.HRD.*')): ?> menu-open <?php endif; ?>">
+                    <a href="<?php echo e(route('admin.HRD.index')); ?>" class="nav-link <?php if(request()->routeIs('admin.HRD.*')): ?> active <?php endif; ?>">
                         <i class="nav-icon fa fa-cube"></i>
                         <p>
                             HRD

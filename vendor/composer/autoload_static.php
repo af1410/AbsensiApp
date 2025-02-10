@@ -210,8 +210,8 @@ class ComposerStaticInit84c61af57b4c8d8b767caf42ec360a3d
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
         ),
         'Whoops\\' => 
         array (
@@ -387,8 +387,8 @@ class ComposerStaticInit84c61af57b4c8d8b767caf42ec360a3d
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -602,9 +602,9 @@ class ComposerStaticInit84c61af57b4c8d8b767caf42ec360a3d
     );
 
     public static $classMap = array (
+        'App\\Http\\Controllers\\Admin\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminController.php',
         'App\\Http\\Controllers\\Admin\\Auth\\AuthenticatedSessionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Auth/AuthenticatedSessionController.php',
         'App\\Http\\Controllers\\Admin\\Auth\\RegisteredUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Auth/RegisteredUserController.php',
-        'App\\Http\\Controllers\\Admin\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ProfileController.php',
         'App\\Http\\Controllers\\Auth\\AuthenticatedSessionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AuthenticatedSessionController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmablePasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmablePasswordController.php',
         'App\\Http\\Controllers\\Auth\\EmailVerificationNotificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/EmailVerificationNotificationController.php',
@@ -615,24 +615,25 @@ class ComposerStaticInit84c61af57b4c8d8b767caf42ec360a3d
         'App\\Http\\Controllers\\Auth\\RegisteredUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisteredUserController.php',
         'App\\Http\\Controllers\\Auth\\VerifyEmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerifyEmailController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\HRD\\Auth\\AuthenticatedSessionController' => __DIR__ . '/../..' . '/app/Http/Controllers/HRD/Auth/AuthenticatedSessionController.php',
+        'App\\Http\\Controllers\\HRD\\Auth\\RegisteredUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/HRD/Auth/RegisteredUserController.php',
+        'App\\Http\\Controllers\\HRD\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/HRD/ProfileController.php',
         'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',
-        'App\\Http\\Controllers\\Teacher\\Auth\\AuthenticatedSessionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Teacher/Auth/AuthenticatedSessionController.php',
-        'App\\Http\\Controllers\\Teacher\\Auth\\RegisteredUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Teacher/Auth/RegisteredUserController.php',
-        'App\\Http\\Controllers\\Teacher\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/Teacher/ProfileController.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Requests\\Auth\\AdminLoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/AdminLoginRequest.php',
+        'App\\Http\\Requests\\Auth\\HRDLoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/HRDLoginRequest.php',
         'App\\Http\\Requests\\Auth\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/LoginRequest.php',
         'App\\Http\\Requests\\Auth\\TeacherLoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/TeacherLoginRequest.php',
         'App\\Http\\Requests\\ProfileUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileUpdateRequest.php',
         'App\\Models\\Admin' => __DIR__ . '/../..' . '/app/Models/Admin.php',
-        'App\\Models\\Teacher' => __DIR__ . '/../..' . '/app/Models/Teacher.php',
+        'App\\Models\\HRD' => __DIR__ . '/../..' . '/app/Models/HRD.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\View\\Components\\AdminAppLayout' => __DIR__ . '/../..' . '/app/View/Components/AdminAppLayout.php',
         'App\\View\\Components\\AppLayout' => __DIR__ . '/../..' . '/app/View/Components/AppLayout.php',
         'App\\View\\Components\\GuestLayout' => __DIR__ . '/../..' . '/app/View/Components/GuestLayout.php',
-        'App\\View\\Components\\TeacherAppLayout' => __DIR__ . '/../..' . '/app/View/Components/TeacherAppLayout.php',
+        'App\\View\\Components\\HRDAppLayout' => __DIR__ . '/../..' . '/app/View/Components/HRDAppLayout.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',

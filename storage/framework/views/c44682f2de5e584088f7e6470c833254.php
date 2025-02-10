@@ -3,7 +3,7 @@
 <?php $__env->startSection('title', 'Edit Admin'); ?>
 
 <?php $__env->startSection('content'); ?>
-<div class="content-wrapper ml-5 pr-5 pt-5">
+<div class="content-wrapper ml-5 pr-5 pt-5" style="background-color: #989da1;">
     <div class="container-fluid pt-2 mt-5">
         <div class="row">
             <div class="col-md-3">

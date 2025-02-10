@@ -23,6 +23,9 @@ class HRD extends Authenticatable
         'name',
         'email',
         'password',
+        'jabatan',
+        'alamat',
+        'no_hp',
     ];
 
     /**

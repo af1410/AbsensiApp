@@ -3,7 +3,7 @@
 <?php $__env->startSection('title', 'Data Admin'); ?>
 
 <?php $__env->startSection('content'); ?>
-<div class="content-wrapper ml-5 pr-5 pt-5">
+<div class="content-wrapper ml-5 pr-5 pt-5" style="background-color: #989da1;">
 
     <div class="container-fluid pt-2 mt-5">
         <div class="row">
@@ -49,7 +49,6 @@
                                 <?php $no = 1; ?>
                                 <?php $__currentLoopData = $admins; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $admin): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
-
                                     <th><?php echo e($no++); ?></th>
                                     <th><?php echo e($admin->NIK); ?></th>
                                     <th><?php echo e($admin->name); ?></th>

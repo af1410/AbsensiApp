@@ -3,7 +3,7 @@
 @section('title', 'Data Admin')
 
 @section('content')
-<div class="content-wrapper ml-5 pr-5 pt-5">
+<div class="content-wrapper ml-5 pr-5 pt-5" style="background-color: #989da1;">
 
     <div class="container-fluid pt-2 mt-5">
         <div class="row">
@@ -49,7 +49,6 @@
                                 @php $no = 1; @endphp
                                 @foreach ($admins as $admin)
                                 <tr>
-
                                     <th>{{ $no++ }}</th>
                                     <th>{{ $admin->NIK }}</th>
                                     <th>{{ $admin->name }}</th>
