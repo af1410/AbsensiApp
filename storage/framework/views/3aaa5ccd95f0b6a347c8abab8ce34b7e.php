@@ -1,49 +1,104 @@
-<?php if (isset($component)) { $__componentOriginal15a72a62debbe72bfa7a4f1dc73a4a07 = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginal15a72a62debbe72bfa7a4f1dc73a4a07 = $attributes; } ?>
-<?php $component = App\View\Components\AdminAppLayout::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('admin-app-layout'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(App\View\Components\AdminAppLayout::class))->getConstructor()): ?>
-<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
-<?php endif; ?>
-<?php $component->withAttributes([]); ?>
-     <?php $__env->slot('header', null, []); ?> 
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <?php echo e(__('Admin Profile')); ?>
 
-        </h2>
-     <?php $__env->endSlot(); ?>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    <?php echo $__env->make('admin..profile.partials.update-profile-information-form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                </div>
+<?php $__env->startSection('title', 'Edit Profile'); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="content-wrapper ml-5 pr-5 pt-5" style="background-color: #989da1;">
+    <div class="container-fluid pt-2 mt-5">
+        <div class="row">
+            <div class="col-md-3">
+
             </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <h3 class="text-center pt-4 pb-4 text-light" style="background-color: #1e90ff;"><b>Edit Profile</b></h3>
+                    <div class="card-body">
+                        <form action="<?php echo e(route('profile.update', auth()->user()->id)); ?>" method="POST">
+                            <?php if($errors->any()): ?>
+                            <div class="alert alert-danger">
+                                <ul>
+                                    <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <li><?php echo e($error); ?></li>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </ul>
+                            </div>
+                            <?php endif; ?>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    <?php echo $__env->make('admin.profile.partials.update-password-form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                </div>
-            </div>
+                            <?php echo csrf_field(); ?>
+                            <?php echo method_field('PUT'); ?>
+                            <div class="mb-3 row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label">NIK</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="NIK" name="NIK" value="<?php echo e(auth()->user()->NIK); ?>" readonly>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="inputPassword" class="col-sm-2 col-form-label">Nama</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="name" name="name" value="<?php echo e(auth()->user()->name); ?>" required>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="Select" class="col-sm-2 col-form-label">Jabatan</label>
+                                <div class="col-sm-10">
+                                    <select id="jabatan" name="jabatan" class="form-control">
+                                        <option value="<?php echo e(auth()->user()->jabatan); ?>"><?php echo e(auth()->user()->jabatan); ?></option>
+                                        <option value="Supervisor">Supervisor</option>
+                                        <option value="Manager">Leader</option>
+                                        <option value="Admin">Operator</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="inputPassword" class="col-sm-2 col-form-label">Alamat</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="alamat" name="alamat" value="<?php echo e(auth()->user()->alamat); ?>" required>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="inputPassword" class="col-sm-2 col-form-label">Nomor HP</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="no_hp" name="no_hp" value="<?php echo e(auth()->user()->no_hp); ?>" required>
+                                </div>
+                            </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    <?php echo $__env->make('admin.profile.partials.delete-user-form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                            <div class="mb-3 row">
+                                <label for="inputPassword" class="col-sm-2 col-form-label">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="email" name="email" value="<?php echo e(auth()->user()->email); ?>" required>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="password" name="password" value="" required>
+                                    <small class="text-muted">Masukan kembali Password yang lama jika tidak ingin merubahnya</small>
+                                </div>
+                            </div>
+                            <div class="form-group row center">
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-3">
+                                    <a href="<?php echo e(url()->previous()); ?>" class="btn btn-primary px-3">
+                                        <i class="fa fa-arrow-left"></i> Kembali
+                                    </a>
+                                </div>
+                                <div class="col-sm-3">
+                                    <button type="reset" class="btn btn-danger px-4">
+                                        <i class="bi bi-arrow-repeat"></i> Reset
+                                    </button>
+                                </div>
+                                <div class="col-sm-3">
+                                    <button type="submit" class="btn btn-success px-3">
+                                        <i class="bi bi-floppy2-fill"></i> Simpan
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
- <?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__attributesOriginal15a72a62debbe72bfa7a4f1dc73a4a07)): ?>
-<?php $attributes = $__attributesOriginal15a72a62debbe72bfa7a4f1dc73a4a07; ?>
-<?php unset($__attributesOriginal15a72a62debbe72bfa7a4f1dc73a4a07); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginal15a72a62debbe72bfa7a4f1dc73a4a07)): ?>
-<?php $component = $__componentOriginal15a72a62debbe72bfa7a4f1dc73a4a07; ?>
-<?php unset($__componentOriginal15a72a62debbe72bfa7a4f1dc73a4a07); ?>
-<?php endif; ?>
-<?php /**PATH F:\Absensi App\AbsensiApp\resources\views/admin/profile/edit.blade.php ENDPATH**/ ?>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\Absensi App\AbsensiApp\resources\views/admin/profile/edit.blade.php ENDPATH**/ ?>

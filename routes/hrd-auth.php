@@ -4,6 +4,7 @@ use App\Http\Controllers\HRD\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\HRD\Auth\RegisteredUserController;
 use App\Http\Controllers\HRD\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HRD\AbsenController;
 
 Route::middleware('guest:hrd')->prefix('hrd')->name('hrd.')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
@@ -22,6 +23,12 @@ Route::middleware(['auth:hrd'])->prefix('hrd')->name('hrd.')->group(function () 
     Route::get('/dashboard', function () {
         return view('hrd.dashboard');
     })->middleware(['verified'])->name('dashboard');
+
+    //Absen
+    Route::get('/absen/index', [AbsenController::class, 'index'])->name('absen.index');
+    Route::post('/absen/store', [AbsenController::class, 'store'])->name('absen.store');
+
+
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

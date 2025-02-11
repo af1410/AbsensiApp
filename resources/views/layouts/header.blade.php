@@ -1,29 +1,30 @@
 <!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-white navbar-dark fixed-top " style="background-color: #1e90ff;">
+<nav class="main-header navbar navbar-expand navbar-white navbar-dark fixed-top" style="background-color: #1e90ff;">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block @if(request()->routeIs('dashboard.*')) active @endif">
-            <a href="{{ route('dashboard') }}" class="nav-link ">Dashboard</a>
+            <a href="{{ route('dashboard') }}" class="nav-link">Dashboard</a>
         </li>
-
     </ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
         <!-- Notifications Dropdown Menu -->
-
         <li class="nav-item">
             <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>
         </li>
+        <!-- Jam -->
+        <li class="nav-item">
+            <b><span id="clock" class="nav-link"></span></b>
+        </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
                 <i class="fas fa-users mr-2"></i>{{ Auth::user()->name }}
-                <!-- <span class="badge badge-warning navbar-badge">15</span> -->
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <div class="dropdown-divider"></div>
@@ -45,3 +46,16 @@
     </ul>
 </nav>
 <!-- /.navbar -->
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    setInterval(updateClock, 1000); // Update every second
+    updateClock(); // Initial call to display the clock immediately
+</script>

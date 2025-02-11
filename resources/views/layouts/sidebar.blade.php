@@ -23,7 +23,7 @@
                 </li>
                 <li class="nav-item @if(request()->routeIs('.*')) menu-open @endif">
                     <a href="{{ route('absensi.index') }}" class="nav-link @if(request()->routeIs('.*')) active @endif">
-                        <i class="nav-icon fa fa-sticky-note"></i>
+                        <i class="nav-icon fas fa-calendar-check"></i>
                         <p>
                             Absensi
                         </p>

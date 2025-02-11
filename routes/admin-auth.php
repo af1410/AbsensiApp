@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HRDController;
 use App\Http\Controllers\Admin\KaryawanController;
-
+use App\Http\Controllers\Admin\AbsenController;
 
 Route::middleware('guest:admin')->prefix('admin')->name('admin.')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
@@ -38,6 +38,9 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
         DashboardController::class,
         'index'
     ])->name('dashboard');
+
+
+
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
@@ -67,6 +70,8 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
 
     //Absensi
     Route::get('/absensi', [AbsensiController::class, 'index'])->name('absensi.index');
+    Route::get('/absen/index', [AbsenController::class, 'index'])->name('absen.index');
+    Route::post('/absen/store', [AbsenController::class, 'store'])->name('absen.store');
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');

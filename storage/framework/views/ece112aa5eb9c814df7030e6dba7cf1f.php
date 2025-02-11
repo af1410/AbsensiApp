@@ -20,6 +20,9 @@
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>
         </li>
+        <li class="nav-item">
+            <b><span id="clock" class="nav-link"></span></b>
+        </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
                 <i class="fas fa-users mr-2"></i><?php echo e(Auth::user()->name); ?>
@@ -45,4 +48,17 @@
         </li>
     </ul>
 </nav>
-<!-- /.navbar --><?php /**PATH F:\Absensi App\AbsensiApp\resources\views/admin/layouts/header.blade.php ENDPATH**/ ?>
+<!-- /.navbar -->
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    setInterval(updateClock, 1000); // Update every second
+    updateClock(); // Initial call to display the clock immediately
+</script><?php /**PATH F:\Absensi App\AbsensiApp\resources\views/admin/layouts/header.blade.php ENDPATH**/ ?>

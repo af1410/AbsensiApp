@@ -23,7 +23,7 @@
                 </li>
                 <li class="nav-item <?php if(request()->routeIs('.*')): ?> menu-open <?php endif; ?>">
                     <a href="<?php echo e(route('absensi.index')); ?>" class="nav-link <?php if(request()->routeIs('.*')): ?> active <?php endif; ?>">
-                        <i class="nav-icon fa fa-sticky-note"></i>
+                        <i class="nav-icon fas fa-calendar-check"></i>
                         <p>
                             Absensi
                         </p>
