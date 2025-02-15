@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
-use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -18,8 +16,9 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        $user = Auth::user(); // Mengambil data pengguna yang sedang login
-        return view('profile.edit', compact('user'));
+        return view('profile.edit', [
+            'user' => $request->user(),
+        ]);
     }
 
     /**
@@ -27,25 +26,16 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $user = Auth::user(); // Mengambil data pengguna yang sedang login
+        $request->user()->fill($request->validated());
 
-        // Validasi input
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'jabatan' => 'required|string',
-            'alamat' => 'nullable|string|max:255',
-            'no_hp' => 'required|string|max:15',
-            'email' => 'required|email|max:255|unique:users,email,' . $user->id,
-            'password' => 'required|string|min:8',
-        ]);
+        if ($request->user()->isDirty('email')) {
+            $request->user()->email_verified_at = null;
+        }
 
-        $user = User::findOrFail($user->id);
-        $user->update($request->all());
+        $request->user()->save();
 
-        // Redirect ke halaman sebelumnya dengan pesan sukses
-        return redirect()->route('profile.edit')->with('success', 'Profil berhasil diperbarui.');
+        return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
-
 
     /**
      * Delete the user's account.

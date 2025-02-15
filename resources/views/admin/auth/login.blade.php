@@ -118,7 +118,7 @@
     <div class="login-container">
         <img src="{{ asset('img/favicon.png') }}" alt="Logo">
         <h1>Login Admin</h1>
-        <form method="POST" action="{{ route('hrd.login') }}">
+        <form method="POST" action="{{ route('admin.login') }}">
             @csrf
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>

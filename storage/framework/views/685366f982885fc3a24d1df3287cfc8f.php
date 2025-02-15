@@ -53,8 +53,8 @@
                         <p>Admin</p>
                     </a>
                 </li>
-                <li class="nav-item <?php if(request()->routeIs('.*')): ?> menu-open <?php endif; ?>">
-                    <a href="<?php echo e(route('admin.profile.edit')); ?>" class="nav-link <?php if(request()->routeIs('.*')): ?> active <?php endif; ?>">
+                <li class="nav-item <?php if(request()->routeIs('admin.profil.*')): ?> menu-open <?php endif; ?>">
+                    <a href="<?php echo e(route('admin.profile.edit')); ?>" class="nav-link <?php if(request()->routeIs('admin.profil.*')): ?> active <?php endif; ?>">
                         <i class="nav-icon fa fa-user"></i>
                         <p>
                             Profile

@@ -15,7 +15,7 @@
                                 <div class="col-md-3">
                                     <div class="card text-white bg-success mb-3" style="height: 190px;">
                                         <div class="card-header text-center">
-                                            <i class="fas fa-users fa-3x"></i>
+                                            <i class="fas fa-users fa-5x"></i>
                                         </div>
                                         <div class="card-body">
                                             <h5 class="card-title text-center"><b>Jumlah Karyawan</b></h5>
@@ -27,7 +27,7 @@
                                 <div class="col-md-3">
                                     <div class="card text-white bg-primary mb-3" style="height: 190px;">
                                         <div class="card-header text-center">
-                                            <i class="fas fa-check-circle fa-3x"></i>
+                                            <i class="fas fa-check-circle fa-5x"></i>
                                         </div>
                                         <div class="card-body">
                                             <h5 class="card-title text-center"><b>Karyawan Masuk</b></h5>
@@ -39,7 +39,7 @@
                                 <div class="col-md-3">
                                     <div class="card text-white bg-warning mb-3" style="height: 190px;">
                                         <div class="card-header text-center">
-                                            <i class="fas fa-user-clock fa-3x"></i>
+                                            <i class="fas fa-user-clock fa-5x"></i>
                                         </div>
                                         <div class="card-body">
                                             <h5 class="card-title text-center"><b>Karyawan Izin</b></h5>
@@ -51,7 +51,7 @@
                                 <div class="col-md-3">
                                     <div class="card text-white bg-danger mb-3" style="height: 190px;">
                                         <div class="card-header text-center">
-                                            <i class="fas fa-briefcase-medical fa-3x"></i>
+                                            <i class="fas fa-briefcase-medical fa-5x"></i>
                                         </div>
                                         <div class="card-body">
                                             <h5 class="card-title text-center"><b>Karyawan Sakit</b></h5>

@@ -118,7 +118,7 @@
     <div class="login-container">
         <img src="<?php echo e(asset('img/favicon.png')); ?>" alt="Logo">
         <h1>Login Karyawan</h1>
-        <form method="POST" action="<?php echo e(route('hrd.login')); ?>">
+        <form method="POST" action="<?php echo e(route('login')); ?>">
             <?php echo csrf_field(); ?>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>

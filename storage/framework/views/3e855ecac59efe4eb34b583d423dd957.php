@@ -25,7 +25,27 @@
                         <p>Absen</p>
                     </a>
                 </li>
-
+                <li class="nav-item <?php if(request()->routeIs('admin.absensi.*')): ?> menu-open <?php endif; ?>">
+                    <a href="<?php echo e(route('hrd.absensi.index')); ?>" class="nav-link <?php if(request()->routeIs('admin.absensi.*')): ?> active <?php endif; ?>">
+                        <i class="nav-icon fas fa-calendar-check"></i>
+                        <p>Absensi</p>
+                    </a>
+                </li>
+                <!-- Karyawan -->
+                <li class="nav-item <?php if(request()->routeIs('admin.karyawan.*')): ?> menu-open <?php endif; ?>">
+                    <a href="<?php echo e(route('hrd.karyawan.index')); ?>" class="nav-link <?php if(request()->routeIs('admin.karyawan.*')): ?> active <?php endif; ?>">
+                        <i class="nav-icon fas fa-user-friends"></i>
+                        <p>Karyawan</p>
+                    </a>
+                </li>
+                <li class="nav-item <?php if(request()->routeIs('hrd.profile.*')): ?> menu-open <?php endif; ?>">
+                    <a href="<?php echo e(route('hrd.profile.edit')); ?>" class="nav-link <?php if(request()->routeIs('hrd.profile.*')): ?> active <?php endif; ?>">
+                        <i class="nav-icon fa fa-user"></i>
+                        <p>
+                            Profile
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

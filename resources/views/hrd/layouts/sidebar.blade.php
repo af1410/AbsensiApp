@@ -25,7 +25,27 @@
                         <p>Absen</p>
                     </a>
                 </li>
-
+                <li class="nav-item @if(request()->routeIs('admin.absensi.*')) menu-open @endif">
+                    <a href="{{ route('hrd.absensi.index') }}" class="nav-link @if(request()->routeIs('admin.absensi.*')) active @endif">
+                        <i class="nav-icon fas fa-calendar-check"></i>
+                        <p>Absensi</p>
+                    </a>
+                </li>
+                <!-- Karyawan -->
+                <li class="nav-item @if(request()->routeIs('admin.karyawan.*')) menu-open @endif">
+                    <a href="{{ route('hrd.karyawan.index') }}" class="nav-link @if(request()->routeIs('admin.karyawan.*')) active @endif">
+                        <i class="nav-icon fas fa-user-friends"></i>
+                        <p>Karyawan</p>
+                    </a>
+                </li>
+                <li class="nav-item @if(request()->routeIs('hrd.profile.*')) menu-open @endif">
+                    <a href="{{ route('hrd.profile.edit') }}" class="nav-link @if(request()->routeIs('hrd.profile.*')) active @endif">
+                        <i class="nav-icon fa fa-user"></i>
+                        <p>
+                            Profile
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

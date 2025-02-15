@@ -53,8 +53,8 @@
                         <p>Admin</p>
                     </a>
                 </li>
-                <li class="nav-item @if(request()->routeIs('.*')) menu-open @endif">
-                    <a href="{{ route('admin.profile.edit') }}" class="nav-link @if(request()->routeIs('.*')) active @endif">
+                <li class="nav-item @if(request()->routeIs('admin.profil.*')) menu-open @endif">
+                    <a href="{{ route('admin.profile.edit') }}" class="nav-link @if(request()->routeIs('admin.profil.*')) active @endif">
                         <i class="nav-icon fa fa-user"></i>
                         <p>
                             Profile

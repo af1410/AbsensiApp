@@ -40,10 +40,10 @@ class RedirectIfAuthenticated
     protected function redirectTo(Request $request): ?string
     {
 
-        if($request->routeIs('teacher.*')){
-            return route('teacher.dashboard');
+        if ($request->routeIs('hrd.*')) {
+            return route('hrd.dashboard');
         }
-        if($request->routeIs('admin.*')){
+        if ($request->routeIs('admin.*')) {
             return route('admin.dashboard');
         }
 
@@ -68,7 +68,7 @@ class RedirectIfAuthenticated
 
         foreach (['dashboard', 'home'] as $uri) {
             if (isset($routes[$uri])) {
-                return '/'.$uri;
+                return '/' . $uri;
             }
         }
 
