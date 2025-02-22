@@ -49,5 +49,29 @@ class AbsensiController extends Controller
 
     public function update(Request $request, $id) {}
 
-    public function print() {}
+    public function print(Request $request)
+    {
+        // Ambil data filter dari query string
+        $search = $request->input('search');
+        $jabatan = $request->input('jabatan');
+
+        // Query absensi sama seperti di index
+        $query = Absensi::query();
+
+        // Filter berdasarkan pencarian nama
+        if (!empty($search)) {
+            $query->where('name', 'like', '%' . $search . '%');
+        }
+
+        // Filter berdasarkan jabatan
+        if (!empty($jabatan)) {
+            $query->where('jabatan', $jabatan);
+        }
+
+        // Ambil data hasil query
+        $absensi = $query->get();
+
+        // Load view cetak dengan data yang sudah difilter
+        return view('hrd.absensi.print', compact('absensi'));
+    }
 }

@@ -36,6 +36,8 @@ Route::middleware(['auth:hrd'])->prefix('hrd')->name('hrd.')->group(function () 
     Route::post('/absen/store', [AbsenController::class, 'store'])->name('absen.store');
 
     Route::get('/absensi', [AbsensiController::class, 'index'])->name('absensi.index');
+    Route::get('absensi/print', [AbsensiController::class, 'print'])->name('absensi.print');
+
 
     //Karyawan
     //Karyawan

@@ -25,21 +25,36 @@
                         <p>Absen</p>
                     </a>
                 </li>
-                <li class="nav-item @if(request()->routeIs('admin.absensi.*')) menu-open @endif">
-                    <a href="{{ route('hrd.absensi.index') }}" class="nav-link @if(request()->routeIs('admin.absensi.*')) active @endif">
+                <!-- Absensi -->
+                <li class="nav-item @if(request()->routeIs('hrd.absensi.*')) menu-open @endif">
+                    <a href="{{ route('hrd.absensi.index') }}" class="nav-link @if(request()->routeIs('hrd.absensi.*')) active @endif">
                         <i class="nav-icon fas fa-calendar-check"></i>
-                        <p>Absensi</p>
+                        <p>Data Absensi</p>
                     </a>
                 </li>
                 <!-- Karyawan -->
-                <li class="nav-item @if(request()->routeIs('admin.karyawan.*')) menu-open @endif">
-                    <a href="{{ route('hrd.karyawan.index') }}" class="nav-link @if(request()->routeIs('admin.karyawan.*')) active @endif">
+                <li class="nav-item @if(request()->routeIs('hrd.karyawan.*')) menu-open @endif">
+                    <a href="{{ route('hrd.karyawan.index') }}" class="nav-link @if(request()->routeIs('hrd.karyawan.*')) active @endif">
                         <i class="nav-icon fas fa-user-friends"></i>
-                        <p>Karyawan</p>
+                        <p>Data Karyawan</p>
                     </a>
                 </li>
-                <li class="nav-item @if(request()->routeIs('hrd.profile.*')) menu-open @endif">
-                    <a href="{{ route('hrd.profile.edit') }}" class="nav-link @if(request()->routeIs('hrd.profile.*')) active @endif">
+                <!-- HRD -->
+                <li class="nav-item @if(request()->routeIs('hrd.HRD.*')) menu-open @endif">
+                    <a href="{{ route('hrd.HRD.index') }}" class="nav-link @if(request()->routeIs('hrd.HRD.*')) active @endif">
+                        <i class="nav-icon fas fa-user-tie"></i>
+                        <p>Data HRD</p>
+                    </a>
+                </li>
+                <!-- Admin -->
+                <!-- <li class="nav-item @if(request()->routeIs('hrd.admin.*')) menu-open @endif">
+                    <a href="{{ route('hrd.admin.index') }}" class="nav-link @if(request()->routeIs('hrd.admin.*')) active @endif">
+                        <i class="nav-icon fas fa-user-shield"></i>
+                        <p>Data Admin</p>
+                    </a>
+                </li> -->
+                <li class="nav-item @if(request()->routeIs('hrd.profil.*')) menu-open @endif">
+                    <a href="{{ route('hrd.profile.edit') }}" class="nav-link @if(request()->routeIs('hrd.profil.*')) active @endif">
                         <i class="nav-icon fa fa-user"></i>
                         <p>
                             Profile

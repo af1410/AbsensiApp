@@ -1,8 +1,8 @@
-@extends('hrd.layouts.app')
 
-@section('title', 'Data Absensi')
 
-@section('content')
+<?php $__env->startSection('title', 'Data Absensi'); ?>
+
+<?php $__env->startSection('content'); ?>
 <div class="content-wrapper ml-5 pr-5 pt-5" style="background-color: #989da1;">
     <div class="container-fluid pt-2 mt-5">
         <div class="row">
@@ -10,29 +10,30 @@
                 <div class="card">
                     <h2 class="text-center pt-4 mb-1 pb-4 text-light" style="background-color: #1e90ff;"><b>Data Absensi</b></h2>
                     <div class="card-body">
-                        @if ($message = session('success'))
+                        <?php if($message = session('success')): ?>
                         <div class="alert alert-success">
-                            <p>{{ $message }}</p>
+                            <p><?php echo e($message); ?></p>
                         </div>
-                        @endif
+                        <?php endif; ?>
 
                         <!-- Form pencarian dan filter -->
-                        <form method="GET" action="{{ route('hrd.absensi.index') }}" class="mb-4">
+                        <form method="GET" action="<?php echo e(route('hrd.absensi.index')); ?>" class="mb-4">
                             <div class="row">
                                 <!-- Input pencarian nama -->
                                 <div class="col-md-3">
                                     <input type="text" name="search" class="form-control" placeholder="Cari Nama"
-                                        value="{{ request('search') }}">
+                                        value="<?php echo e(request('search')); ?>">
                                 </div>
                                 <!-- Combobox filter jabatan -->
                                 <div class="col-md-3">
                                     <select name="jabatan" class="form-control">
                                         <option value="">Semua Jabatan</option>
-                                        @foreach ($allJabatan as $j)
-                                        <option value="{{ $j->jabatan }}" {{ request('jabatan') == $j->jabatan ? 'selected' : '' }}>
-                                            {{ $j->jabatan }}
+                                        <?php $__currentLoopData = $allJabatan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $j): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($j->jabatan); ?>" <?php echo e(request('jabatan') == $j->jabatan ? 'selected' : ''); ?>>
+                                            <?php echo e($j->jabatan); ?>
+
                                         </option>
-                                        @endforeach
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
                                 </div>
                                 <!-- Tombol cari -->
@@ -45,7 +46,7 @@
                                     </button>
                                 </div>
                                 <div class="col-md-2">
-                                    <a href="{{ route('hrd.absensi.print', request()->all()) }}" target="_blank" class="btn btn-success w-100">
+                                    <a href="<?php echo e(route('hrd.absensi.print', request()->all())); ?>" target="_blank" class="btn btn-success w-100">
                                         <i class="fas fa-print"></i> Print
                                     </a>
                                 </div>
@@ -65,22 +66,22 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @php $no = 1; @endphp
-                                @forelse ($absensi as $absen)
+                                <?php $no = 1; ?>
+                                <?php $__empty_1 = true; $__currentLoopData = $absensi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $absen): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                 <tr>
-                                    <th>{{ $no++ }}</th>
-                                    <th>{{ $absen->NIK }}</th>
-                                    <th>{{ $absen->name }}</th>
-                                    <th>{{ $absen->jabatan }}</th>
-                                    <th>{{ $absen->tanggal }}</th>
-                                    <th>{{ $absen->jam }}</th>
-                                    <th>{{ $absen->status }}</th>
+                                    <th><?php echo e($no++); ?></th>
+                                    <th><?php echo e($absen->NIK); ?></th>
+                                    <th><?php echo e($absen->name); ?></th>
+                                    <th><?php echo e($absen->jabatan); ?></th>
+                                    <th><?php echo e($absen->tanggal); ?></th>
+                                    <th><?php echo e($absen->jam); ?></th>
+                                    <th><?php echo e($absen->status); ?></th>
                                 </tr>
-                                @empty
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                 <tr>
                                     <td colspan="7" class="text-center">Data tidak ditemukan.</td>
                                 </tr>
-                                @endforelse
+                                <?php endif; ?>
                             </tbody>
                         </table>
                     </div>
@@ -89,4 +90,5 @@
         </div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('hrd.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\Absensi App\AbsensiApp\resources\views/hrd/absensi/index.blade.php ENDPATH**/ ?>

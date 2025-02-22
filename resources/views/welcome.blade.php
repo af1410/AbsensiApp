@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome | {{ config('app.name') }}</title>
-    <link rel="icon" href="{{ asset('img/favicon.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('img/favicon.jpg') }}" type="image/png">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -159,11 +159,11 @@
             <a href="{{ route('login') }}">Log in as User</a>
             @endauth
 
-            @auth('admin')
+            <!-- @auth('admin')
             <a href="{{ url('/admin/dashboard') }}">Admin Dashboard</a>
             @else
             <a href="{{ route('admin.login') }}">Log in as Admin</a>
-            @endauth
+            @endauth -->
 
             @auth('hrd')
             <a href="{{ url('/hrd/dashboard') }}">HRD Dashboard</a>

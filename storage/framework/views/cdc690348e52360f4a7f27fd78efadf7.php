@@ -68,7 +68,7 @@
                                     <label for="status" class="form-label">Pilih Absensi:</label>
                                     <div>
                                         <input type="radio" id="absenMasuk" name="status" value="Absen Masuk"
-                                            <?php if($sudahAbsen || now()->format('H:i') < '07:30' && now()->format('H:i') <= '08:00' ): ?> disabled <?php endif; ?>>
+                                            <?php if($sudahAbsen || now()->format('H:i') < '07:30' && now()->format('H:i') <= '08:30' ): ?> disabled <?php endif; ?>>
                                                 <label for="absenMasuk">Absen Masuk</label>
                                     </div>
                                     <div>
@@ -82,24 +82,12 @@
                                         <label for="sakit">Sakit</label>
                                     </div>
                                 </div>
-
-                                <!-- Logika Tombol Berdasarkan Waktu -->
-                                <?php if(now()->format('H:i') >= '12:00' && now()->format('H:i') <= '12:10' ): ?>
-                                    <div class="mb-3">
-                                    <button type="submit" name="status" value="Istirahat" class="btn btn-warning">
-                                        Istirahat
-                                    </button>
                         </div>
-                        <?php elseif(now()->format('H:i') >= '13:00' && now()->format('H:i') <= '13:10' ): ?>
-                            <div class="mb-3">
-                            <button type="submit" name="status" value="Masuk Istirahat" class="btn btn-success">
-                                Masuk Istirahat
-                            </button>
                     </div>
-                    <?php endif; ?>
 
-                    <?php if(now()->format('H:i') >= '16:00'): ?>
-                    <div class="mb-3">
+
+                    <?php if(now()->format('H:i') >= '17:00'): ?>
+                    <div class="mb-3 ml-2">
                         <button type="submit" name="status" value="Absen Pulang" class="btn btn-success">
                             Absen Pulang
                         </button>
@@ -107,7 +95,7 @@
                     <?php endif; ?>
 
                     <!-- Tombol Submit -->
-                    <div>
+                    <div class="ml-2 mb-2">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                     </form>

@@ -66,7 +66,7 @@
                                     <label for="status" class="form-label">Pilih Absensi:</label>
                                     <div>
                                         <input type="radio" id="absenMasuk" name="status" value="Absen Masuk"
-                                            @if($sudahAbsen || now()->format('H:i') < '07:30' && now()->format('H:i') <= '08:00' ) disabled @endif>
+                                            @if($sudahAbsen || now()->format('H:i') < '07:30' && now()->format('H:i') <= '08:30' ) disabled @endif>
                                                 <label for="absenMasuk">Absen Masuk</label>
                                     </div>
                                     <div>
@@ -80,23 +80,11 @@
                                         <label for="sakit">Sakit</label>
                                     </div>
                                 </div>
-
-                                <!-- Logika Tombol Berdasarkan Waktu -->
-                                @if(now()->format('H:i') >= '12:00' && now()->format('H:i') <= '12:10' )
-                                    <div class="mb-3">
-                                    <button type="submit" name="status" value="Istirahat" class="btn btn-warning">
-                                        Istirahat
-                                    </button>
                         </div>
-                        @elseif(now()->format('H:i') >= '13:00' && now()->format('H:i') <= '13:10' )
-                            <div class="mb-3">
-                            <button type="submit" name="status" value="Masuk Istirahat" class="btn btn-success">
-                                Masuk Istirahat
-                            </button>
                     </div>
                     @endif
 
-                    @if(now()->format('H:i') >= '16:00')
+                    @if(now()->format('H:i') >= '17:00')
                     <div class="mb-3">
                         <button type="submit" name="status" value="Absen Pulang" class="btn btn-success">
                             Absen Pulang

@@ -60,9 +60,9 @@
 
     <div class="kop">
         <!-- Ganti dengan logo perusahaan -->
-        <h1 style=" margin-top: 20px;"><b>PT. Rahayu</b></h1>
-        <h2>Jl. Tanjung Sari, Kab. Sumedang</h2>
-        <h3>Telepon: 08345678 | Email: Ruys@gmail.com</h3>
+        <h1 style=" margin-top: 20px;"><b>PT Titian Harmoni Rekayasa</b></h1>
+        <h2>Komplek Antabaru II, Jln Anta Biru Blok H.21, Arcamanik, Bandung</h2>
+        <h3>Telepon: 022-7806710 | Email: pttitianhr@yahoo.com</h3>
     </div>
 
     <div class="line"></div>

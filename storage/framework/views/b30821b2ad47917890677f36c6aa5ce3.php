@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome | <?php echo e(config('app.name')); ?></title>
-    <link rel="icon" href="<?php echo e(asset('img/favicon.png')); ?>" type="image/png">
+    <link rel="icon" href="<?php echo e(asset('img/favicon.jpg')); ?>" type="image/png">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -159,11 +159,11 @@
             <a href="<?php echo e(route('login')); ?>">Log in as User</a>
             <?php endif; ?>
 
-            <?php if(auth()->guard('admin')->check()): ?>
+            <!-- <?php if(auth()->guard('admin')->check()): ?>
             <a href="<?php echo e(url('/admin/dashboard')); ?>">Admin Dashboard</a>
             <?php else: ?>
             <a href="<?php echo e(route('admin.login')); ?>">Log in as Admin</a>
-            <?php endif; ?>
+            <?php endif; ?> -->
 
             <?php if(auth()->guard('hrd')->check()): ?>
             <a href="<?php echo e(url('/hrd/dashboard')); ?>">HRD Dashboard</a>

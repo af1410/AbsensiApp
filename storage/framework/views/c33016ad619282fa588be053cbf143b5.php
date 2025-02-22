@@ -1,8 +1,8 @@
-@extends('hrd.layouts.app')
 
-@section('title', 'Edit Admin')
 
-@section('content')
+<?php $__env->startSection('title', 'Edit Karyawan'); ?>
+
+<?php $__env->startSection('content'); ?>
 <div class="content-wrapper ml-5 pr-5 pt-5" style="background-color: #989da1;">
     <div class="container-fluid pt-2 mt-5">
         <div class="row">
@@ -11,73 +11,73 @@
             </div>
             <div class="col-md-6">
                 <div class="card">
-                    <h3 class="text-center pt-4 pb-4 text-light" style="background-color: #1e90ff;"><b>Edit Admin</b></h3>
+                    <h3 class="text-center pt-4 pb-4 text-light" style="background-color: #1e90ff;"><b>Edit Karyawan</b></h3>
                     <div class="card-body">
-                        <form action="{{ route('admin.admin.update', $admin->id) }}" method="POST">
-                            @if ($errors->any())
+                        <form action="<?php echo e(route('admin.karyawan.update', $user->id)); ?>" method="POST">
+                            <?php if($errors->any()): ?>
                             <div class="alert alert-danger">
                                 <ul>
-                                    @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                    @endforeach
+                                    <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <li><?php echo e($error); ?></li>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </ul>
                             </div>
-                            @endif
+                            <?php endif; ?>
 
-                            @csrf
-                            @method('PUT')
+                            <?php echo csrf_field(); ?>
+                            <?php echo method_field('PUT'); ?>
                             <div class="mb-3 row">
                                 <label for="staticEmail" class="col-sm-2 col-form-label">NIK</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="NIK" name="NIK" value="{{ $admin->NIK }}" readonly>
+                                    <input type="text" class="form-control" id="NIK" name="NIK" value="<?php echo e($user->NIK); ?>" readonly>
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="inputPassword" class="col-sm-2 col-form-label">Nama</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="name" name="name" class="name" value="{{ $admin->name }}" required>
+                                    <input type="text" class="form-control" id="name" name="name" class="name" value="<?php echo e($user->name); ?>" required>
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="Select" class="col-sm-2 col-form-label">Jabatan</label>
                                 <div class="col-sm-10">
                                     <select id="jabatan" name="jabatan" class="form-control">
-                                        <option value="{{ $admin->jabatan }}">{{ $admin->jabatan }}</option>
-                                        <option value="HRD">HRD</option>
-                                        <option value="Manager">Manager</option>
-                                        <option value="Admin">Admin</option>
+                                        <option value="<?php echo e($user->jabatan); ?>"><?php echo e($user->jabatan); ?></option>
+                                        <option value="Supervisor">Supervisor</option>
+                                        <option value="Leader">Leader</option>
+                                        <option value="Operator">Operator</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="inputPassword" class="col-sm-2 col-form-label">Alamat</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="alamat" name="alamat" value="{{ $admin->alamat }}">
+                                    <input type="text" class="form-control" id="alamat" name="alamat" value="<?php echo e($user->alamat); ?>">
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="inputPassword" class="col-sm-2 col-form-label">Nomor HP</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="no_hp" name="no_hp" value="{{ $admin->no_hp }}" required>
+                                    <input type="text" class="form-control" id="no_hp" name="no_hp" value="<?php echo e($user->no_hp); ?>" required>
                                 </div>
                             </div>
 
                             <div class="mb-3 row">
                                 <label for="inputPassword" class="col-sm-2 col-form-label">Email</label>
                                 <div class="col-sm-10">
-                                    <input type="email" class="form-control" id="email" name="email" value="{{ $admin->email }}" required>
+                                    <input type="email" class="form-control" id="email" name="email" value="<?php echo e($user->email); ?>" required>
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
                                 <div class="col-sm-10">
-                                    <input type="password" class="form-control" id="password" name="password" value="{{ $admin->password }}" required>
+                                    <input type="password" class="form-control" id="password" name="password" value="<?php echo e($user->password); ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row center">
                                 <div class="col-sm-2"></div>
                                 <div class="col-sm-3">
-                                    <a href="/admin/admin" class="btn btn-primary px-3">
+                                    <a href="/admin/karyawan" class="btn btn-primary px-3">
                                         <i class="fa fa-arrow-left"></i>
                                         Kembali
                                     </a>
@@ -109,4 +109,5 @@
             </div>
         </div>
     </div>
-    @endsection
+    <?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\Absensi App\AbsensiApp\resources\views/admin/karyawan/edit.blade.php ENDPATH**/ ?>

@@ -8,7 +8,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <title>Laporan Data Karyawan</title>
-    <link rel="icon" href="{{ asset('img/favicon.jpg') }}" type="image/png">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -61,9 +60,9 @@
 
     <div class="kop">
         <!-- Ganti dengan logo perusahaan -->
-        <h1 style=" margin-top: 20px;"><b>PT Titian Harmoni Rekayasa</b></h1>
-        <h2>Komplek Antabaru II, Jln Anta Biru Blok H.21, Arcamanik, Bandung</h2>
-        <h3>Telepon: 022-7806710 | Email: pttitianhr@yahoo.com</h3>
+        <h1 style=" margin-top: 20px;"><b>PT. Rahayu</b></h1>
+        <h2>Jl. Tanjung Sari, Kab. Sumedang</h2>
+        <h3>Telepon: 08345678 | Email: Ruys@gmail.com</h3>
     </div>
 
     <div class="line"></div>
@@ -85,18 +84,18 @@
             </tr>
         </thead>
         <tbody>
-            @php $no = 1; @endphp
-            @foreach ($users as $user)
+            <?php $no = 1; ?>
+            <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <tr>
-                <th>{{ $no++ }}</th>
-                <th>{{ $user->NIK }}</th>
-                <th>{{ $user->name }}</th>
-                <th>{{ $user->jabatan }}</th>
-                <th>{{ $user->alamat }}</th>
-                <th>{{ $user->no_hp }}</th>
-                <th>{{ $user->email }}</th>
+                <th><?php echo e($no++); ?></th>
+                <th><?php echo e($user->NIK); ?></th>
+                <th><?php echo e($user->name); ?></th>
+                <th><?php echo e($user->jabatan); ?></th>
+                <th><?php echo e($user->alamat); ?></th>
+                <th><?php echo e($user->no_hp); ?></th>
+                <th><?php echo e($user->email); ?></th>
             </tr>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
     </table>
     <script>
@@ -104,9 +103,9 @@
     </script>
 
     <!-- jQuery -->
-    <script src="{{ asset('vendor/plugins/jquery/jquery.min.js') }}"></script>
+    <script src="<?php echo e(asset('vendor/plugins/jquery/jquery.min.js')); ?>"></script>
     <!-- Bootstrap 4 -->
-    <script src="{{ asset('vendor/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="<?php echo e(asset('vendor/plugins/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
 </body>
 
-</html>
+</html><?php /**PATH F:\Absensi App\AbsensiApp\resources\views/hrd/karyawan/print.blade.php ENDPATH**/ ?>

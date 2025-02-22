@@ -29,28 +29,28 @@
                 <li class="nav-item <?php if(request()->routeIs('admin.absensi.*')): ?> menu-open <?php endif; ?>">
                     <a href="<?php echo e(route('admin.absensi.index')); ?>" class="nav-link <?php if(request()->routeIs('admin.absensi.*')): ?> active <?php endif; ?>">
                         <i class="nav-icon fas fa-calendar-check"></i>
-                        <p>Absensi</p>
+                        <p>Data Absensi</p>
                     </a>
                 </li>
                 <!-- Karyawan -->
                 <li class="nav-item <?php if(request()->routeIs('admin.karyawan.*')): ?> menu-open <?php endif; ?>">
                     <a href="<?php echo e(route('admin.karyawan.index')); ?>" class="nav-link <?php if(request()->routeIs('admin.karyawan.*')): ?> active <?php endif; ?>">
                         <i class="nav-icon fas fa-user-friends"></i>
-                        <p>Karyawan</p>
+                        <p>Data Karyawan</p>
                     </a>
                 </li>
                 <!-- HRD -->
                 <li class="nav-item <?php if(request()->routeIs('admin.HRD.*')): ?> menu-open <?php endif; ?>">
                     <a href="<?php echo e(route('admin.HRD.index')); ?>" class="nav-link <?php if(request()->routeIs('admin.HRD.*')): ?> active <?php endif; ?>">
                         <i class="nav-icon fas fa-user-tie"></i>
-                        <p>HRD</p>
+                        <p>Data HRD</p>
                     </a>
                 </li>
                 <!-- Admin -->
                 <li class="nav-item <?php if(request()->routeIs('admin.admin.*')): ?> menu-open <?php endif; ?>">
                     <a href="<?php echo e(route('admin.admin.index')); ?>" class="nav-link <?php if(request()->routeIs('admin.admin.*')): ?> active <?php endif; ?>">
                         <i class="nav-icon fas fa-user-shield"></i>
-                        <p>Admin</p>
+                        <p>Data Admin</p>
                     </a>
                 </li>
                 <li class="nav-item <?php if(request()->routeIs('admin.profil.*')): ?> menu-open <?php endif; ?>">

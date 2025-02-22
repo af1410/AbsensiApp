@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <title>Laporan Data Karyawan</title>
-    <link rel="icon" href="{{ asset('img/favicon.jpg') }}" type="image/png">
+    <title>Laporan Data Absensi</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,11 +16,6 @@
         .kop {
             text-align: center;
             margin-bottom: 20px;
-        }
-
-        .kop img {
-            width: 100px;
-            height: auto;
         }
 
         .kop h1,
@@ -60,53 +54,48 @@
 <body>
 
     <div class="kop">
-        <!-- Ganti dengan logo perusahaan -->
-        <h1 style=" margin-top: 20px;"><b>PT Titian Harmoni Rekayasa</b></h1>
-        <h2>Komplek Antabaru II, Jln Anta Biru Blok H.21, Arcamanik, Bandung</h2>
+        <h1 style="margin-top: 20px;"><b>PT Titian Harmoni Rekayasa</b></h1>
+        <h2>Komplek Antabaru II, Jln Anta Biru Blok H.21, Arcamanik, Bandung</h2>
         <h3>Telepon: 022-7806710 | Email: pttitianhr@yahoo.com</h3>
     </div>
 
     <div class="line"></div>
     <div class="line-thin"></div>
 
-    <h2 style="text-align: center; margin-top: 20px;"><b>Laporan Data Karyawan</b></h2>
+    <h2 style="text-align: center; margin-top: 20px;"><b>Laporan Data Absensi</b></h2>
     <br>
-    <table class="table table-bordered-4">
+    <table class="table table-bordered">
         <thead class="thead text-light" style="background-color: #1e90ff;">
             <tr>
                 <th>No</th>
-                <th>Kode Karyawan</th>
+                <th>NIK</th>
                 <th>Nama</th>
                 <th>Jabatan</th>
-                <th>Alamat</th>
-                <th>Nomor Hp</th>
-                <th>E-Mail</th>
-                <th>Action</th>
+                <th>Tanggal</th>
+                <th>Jam</th>
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>
-            @php $no = 1; @endphp
-            @foreach ($users as $user)
+            <?php $no = 1; ?>
+            <?php $__currentLoopData = $absensi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $absen): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <tr>
-                <th>{{ $no++ }}</th>
-                <th>{{ $user->NIK }}</th>
-                <th>{{ $user->name }}</th>
-                <th>{{ $user->jabatan }}</th>
-                <th>{{ $user->alamat }}</th>
-                <th>{{ $user->no_hp }}</th>
-                <th>{{ $user->email }}</th>
+                <td><?php echo e($no++); ?></td>
+                <td><?php echo e($absen->NIK); ?></td>
+                <td><?php echo e($absen->name); ?></td>
+                <td><?php echo e($absen->jabatan); ?></td>
+                <td><?php echo e($absen->tanggal); ?></td>
+                <td><?php echo e($absen->jam); ?></td>
+                <td><?php echo e($absen->status); ?></td>
             </tr>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
     </table>
+
     <script>
         window.print();
     </script>
 
-    <!-- jQuery -->
-    <script src="{{ asset('vendor/plugins/jquery/jquery.min.js') }}"></script>
-    <!-- Bootstrap 4 -->
-    <script src="{{ asset('vendor/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 </body>
 
-</html>
+</html><?php /**PATH F:\Absensi App\AbsensiApp\resources\views/hrd/absensi/print.blade.php ENDPATH**/ ?>
